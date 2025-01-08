@@ -13,3 +13,4 @@ jobs:
       IMAGE_NAME: react-app
       DOCKER_FILE_PATH: ./Dockerfile
       ENVIRONMENT: production
+

@@ -19,9 +19,6 @@ on:
 jobs:
   docker-build:
     runs-on: ubuntu-latest
-    permissions:
-      contents: 'read'
-      id-token: 'write'
     steps:
       - name: Checkout the repo
         uses: actions/checkout@v4

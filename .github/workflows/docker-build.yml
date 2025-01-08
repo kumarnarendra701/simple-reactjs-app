@@ -1,0 +1,37 @@
+name: Node.js Docker Pipeline
+
+on:
+  workflow_call:
+    inputs:
+      DOCKER_REPO:
+        required: true
+        type: string
+      IMAGE_NAME:
+        required: true
+        type: string
+      DOCKER_FILE_PATH:
+        required: true
+        type: string
+      ENVIRONMENT:
+        required: true
+        type: string
+
+jobs:
+  docker-build:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: 'read'
+      id-token: 'write'
+    steps:
+      - name: Checkout the repo
+        uses: actions/checkout@v3
+
+      - name: Build & Push Docker Image
+        uses: docker/build-push-action@v3
+        with:
+          context: .
+          file: ${{ inputs.DOCKER_FILE_PATH }}
+          push: true
+          tags: ${{ inputs.DOCKER_REPO }}/${{ inputs.IMAGE_NAME }}:${{ github.sha }}
+          build-args: |
+            NODE_ENV=${{ inputs.ENVIRONMENT }}

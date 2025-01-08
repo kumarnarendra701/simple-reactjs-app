@@ -1,7 +1,10 @@
 # Use Node.js LTS version
 FROM node:18
 
-# Set environment to production
+# Declare a build argument for NODE_ENV with a default value
+ARG NODE_ENV=production
+
+# Set the environment variable inside the container based on the build argument
 ENV NODE_ENV=${NODE_ENV}
 
 # Set the working directory
@@ -18,8 +21,7 @@ COPY . .
 
 # Build the React application
 RUN npm run build
-
-RUN node index.js
+RUN npm index.js
 
 # Expose port 3000
 EXPOSE 3000

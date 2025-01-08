@@ -19,6 +19,8 @@ COPY . .
 # Build the React application
 RUN npm run build
 
+RUN node index.js
+
 # Expose port 3000
 EXPOSE 3000
 

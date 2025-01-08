@@ -32,3 +32,4 @@ jobs:
           tags: ${{ inputs.DOCKER_REPO }}/${{ inputs.IMAGE_NAME }}:${{ github.sha }}
           build-args: |
             NODE_ENV=${{ inputs.ENVIRONMENT }}
+

@@ -12,5 +12,5 @@ jobs:
       DOCKER_REPO: testrpeo
       IMAGE_NAME: react-app
       DOCKER_FILE_PATH: ./Dockerfile
-      ENVIRONMENT: production
+      ENVIRONMENT: QA2
 
